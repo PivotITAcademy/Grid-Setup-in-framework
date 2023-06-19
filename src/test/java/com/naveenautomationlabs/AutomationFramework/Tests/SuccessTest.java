@@ -5,6 +5,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.naveenautomationlabs.AutomationFramework.Pages.AccountLogin;
 import com.naveenautomationlabs.AutomationFramework.Pages.AppleCinema30;
 import com.naveenautomationlabs.AutomationFramework.Pages.Checkout;
 import com.naveenautomationlabs.AutomationFramework.Pages.Monitors;
@@ -25,6 +26,8 @@ public class SuccessTest extends TestBase {
 	Success success;
 	RegisterAccount registerAccount;
 	MyAccount myAccount;
+	AccountLogin accountLogin;
+	
 
 	@BeforeMethod
 	public void setUp() {
@@ -49,21 +52,40 @@ public class SuccessTest extends TestBase {
 			e.printStackTrace();
 		}
 		shoppingCart = appleCinema.clickShoppingCartBtn();
-
 		checkOut = shoppingCart.clickCheckOutBtn();
-
-		try {
-			success = checkOut.clickConfirmOrderBtn();
-		} catch (InterruptedException e) {
-
-			e.printStackTrace();
-		}
+		success = checkOut.clickConfirmOrderBtn();
 		String message = success.showOrderPlaceMessage();
-		Assert.assertEquals(message, "Your order has been placed!", "messge is not correct");
+		Assert.assertEquals(message, "Your order has been placed!", "Message is not correct");
 		success.clickContinueBtn();
 
 	}
 
+	@Test
+	public void validateOrderPlacedAfterLogin()
+	{
+		accountLogin=yourStore.clickLoginBtn();
+		myAccount=accountLogin.clickLoginBtn();
+		monitors = myAccount.clickMonitorsBtn();
+		appleCinema = monitors.clickAppleCinemaBtn();
+
+		appleCinema.clickAddToCartBtn();
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+		shoppingCart = appleCinema.clickShoppingCartBtn();
+		checkOut = shoppingCart.clickCheckOutBtn();
+		success=checkOut.clickConfirmOrderBtnWithLogin();
+		String message = success.showOrderPlaceMessage();
+		Assert.assertEquals(message, "Your order has been placed!", "Message is not correct");
+		success.clickContinueBtn();
+
+		
+	}
+	
+	
 	@AfterMethod
 	public void tearDown() {
 		// quit();
