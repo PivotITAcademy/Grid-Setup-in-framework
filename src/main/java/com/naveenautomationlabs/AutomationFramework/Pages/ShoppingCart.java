@@ -22,7 +22,7 @@ public class ShoppingCart extends TestBase{
 	@FindBy(xpath = "//a[text()='Checkout']")
 	private WebElement checkOutBtn;
 	
-	public String validateTotal()
+	public String getTotal()
 	{
 		return total.getText();
 	}

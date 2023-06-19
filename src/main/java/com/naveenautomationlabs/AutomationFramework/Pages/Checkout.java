@@ -1,5 +1,7 @@
 package com.naveenautomationlabs.AutomationFramework.Pages;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -15,22 +17,8 @@ public class Checkout extends TestBase {
 
 	Select select;
 
-	/*
-	 * @FindBy(css="input[value='register']") private WebElement registerRadioBtn;
-	 * 
-	 * @FindBy(css="input[value='Continue']") private WebElement
-	 * continueRegisterBtn;
-	 * 
-	 * @FindBy(css = "#input-email") private WebElement inputEmailField;
-	 * 
-	 * @FindBy(css = "#input-password") private WebElement inputPasswordField;
-	 * 
-	 * @FindBy(css = "input[value='Login']") private WebElement loginBtn;
-	 * 
-	 * 
-	 * @FindBy(xpath = "(//input[@name='payment_address'])[1]") private WebElement
-	 * radionBtnExistingAddressBillingDetails;
-	 */
+	@FindBy(xpath = "(//input[@name='payment_address'])[2]")
+	WebElement newAddressRadioBtn;
 
 	@FindBy(xpath = "((//input[@name='shipping_address'])[1]")
 	private WebElement radionBtnExistingAddressDeliveryDetails;
@@ -38,7 +26,7 @@ public class Checkout extends TestBase {
 	@FindBy(xpath = "((//input[@name='shipping_method'])[1]")
 	private WebElement flatShippingRadioBtn;
 
-	// ------------billingdetails webelements
+	// ------------BillingDetails WebElements
 	@FindBy(css = "#input-payment-firstname")
 	WebElement firstNameInputField;
 
@@ -85,29 +73,17 @@ public class Checkout extends TestBase {
 	@FindBy(xpath = "//td[text()='$809.00']")
 	private WebElement totalValue;
 
-	/*
-	 * public void enterEmail() { inputEmailField.sendKeys("tony@gmail.com"); }
-	 * 
-	 * public void enterPassword() { inputPasswordField.sendKeys("Password2"); }
-	 * 
-	 * public Checkout clickLoginBtn() { loginBtn.click(); return new Checkout(); }
-	 * 
-	 * public void selectExistingAddressBillingDetails() {
-	 * radionBtnExistingAddressBillingDetails.click(); }
-	 */
+	private void selectNewAddressBillingDetails() {
+		newAddressRadioBtn.click();
+	}
 
 	private void clickBillingDetailsContinueBtn() {
 		enterBillingDetails();
 		billingDetailsContinueBtn.click();
 	}
 
-	/*
-	 * private void selectExistingAddressDeliveryDetails() {
-	 * radionBtnExistingAddressDeliveryDetails.click(); }
-	 */
-
 	private void clickDeliveryDetailsContinueBtn() {
-		// selectExistingAddressDeliveryDetails();
+
 		deliveryDetailsContinueBtn.click();
 	}
 
@@ -125,18 +101,37 @@ public class Checkout extends TestBase {
 		paymentMethodContinueBtn.click();
 	}
 
-	public Success clickConfirmOrderBtn() throws InterruptedException {
-		Thread.sleep(1000);
+	public Success clickConfirmOrderBtn() {
+		wd.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+
 		clickBillingDetailsContinueBtn();
-		Thread.sleep(1000);
+
 		clickDeliveryDetailsContinueBtn();
-		Thread.sleep(1000);
+
 		clickDeliveryMethodContinueBtn();
-		Thread.sleep(1000);
+
 		clickPaymentMethodContinueBtn();
-		Thread.sleep(1000);
+
 		confirmOrderBtn.click();
-		Thread.sleep(1000);
+
+		return new Success();
+	}
+
+	public Success clickConfirmOrderBtnWithLogin() {
+		wd.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+
+		selectNewAddressBillingDetails();
+
+		clickBillingDetailsContinueBtn();
+
+		clickDeliveryDetailsContinueBtn();
+
+		clickDeliveryMethodContinueBtn();
+
+		clickPaymentMethodContinueBtn();
+
+		confirmOrderBtn.click();
+
 		return new Success();
 	}
 
@@ -171,6 +166,7 @@ public class Checkout extends TestBase {
 	private void selectCountry() {
 		select = new Select(selectCountry);
 		select.selectByValue("4");
+
 	}
 
 	private void selectState() {
@@ -179,6 +175,8 @@ public class Checkout extends TestBase {
 	}
 
 	private void enterBillingDetails() {
+		wd.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+
 		enterFirstName();
 		enterLastname();
 		enterCompanyName();
