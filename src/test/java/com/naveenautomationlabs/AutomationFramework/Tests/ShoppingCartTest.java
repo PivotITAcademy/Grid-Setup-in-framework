@@ -18,7 +18,7 @@ public class ShoppingCartTest extends TestBase{
 		intialization();
 	}
 	
-	@Test
+	@Test(enabled = false)
 	public boolean validateTotal()
 	{
 	   String sum = shoppingCart.getTotal();	

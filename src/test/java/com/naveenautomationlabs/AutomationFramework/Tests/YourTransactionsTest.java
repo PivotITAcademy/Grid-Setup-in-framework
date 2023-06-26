@@ -6,11 +6,12 @@ import org.testng.annotations.Test;
 import com.naveenautomationlabs.AutomationFramework.Pages.AccountLogin;
 import com.naveenautomationlabs.AutomationFramework.Pages.MyAccount;
 import com.naveenautomationlabs.AutomationFramework.Pages.YourStore;
+import com.naveenautomationlabs.AutomationFramework.Pages.YourTransactions;
 import com.naveenautomationlabs.AutomationFramework.base.TestBase;
 
-public class MyAccountTest extends TestBase{
-
+public class YourTransactionsTest extends TestBase {
 	YourStore yourStore;
+	YourTransactions yourTransactions;
 	MyAccount myAccount;
 	AccountLogin accountLogin;
 	
@@ -18,7 +19,8 @@ public class MyAccountTest extends TestBase{
 	public void setUp() {
 		
 		intialization();
-		yourStore= new YourStore();	
+		yourStore= new YourStore();
+		
 	}
 	
 	@Test
@@ -26,11 +28,13 @@ public class MyAccountTest extends TestBase{
 	{
 		accountLogin = yourStore.clickLoginBtn();
 		myAccount = accountLogin.clickLoginBtn();
-		boolean isCorrectOptionSelected = myAccount.selectOptionFromSiteNavigation("My Account");
+		boolean isCorrectOptionSelected = myAccount.selectOptionFromSiteNavigation("Transactions");
 		if(isCorrectOptionSelected)
 		{
 			System.out.println("Right Product Selected");
-			wd.navigate().to("https://naveenautomationlabs.com/opencart/index.php?route=account/account");
+			wd.navigate().to("https://naveenautomationlabs.com/opencart/index.php?route=account/transaction");
 		}
 	}
+	
+	
 }
