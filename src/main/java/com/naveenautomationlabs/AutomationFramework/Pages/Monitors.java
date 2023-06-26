@@ -6,17 +6,16 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.naveenautomationlabs.AutomationFramework.base.TestBase;
 
-public class Monitors extends TestBase{
+public class Monitors extends TestBase {
 
 	public Monitors() {
 		PageFactory.initElements(wd, this);
 	}
-	
-	@FindBy(xpath = "//a[text()='Apple Cinema 30\"']")
+
+	@FindBy(css = "#content div.row:nth-of-type(3)>div.product-layout:first-of-type>div>div:nth-of-type(2) a")
 	private WebElement appleCinemaBtn;
-	
-	public AppleCinema30 clickAppleCinemaBtn()
-	{
+
+	public AppleCinema30 clickAppleCinemaBtn() {
 		appleCinemaBtn.click();
 		return new AppleCinema30();
 	}

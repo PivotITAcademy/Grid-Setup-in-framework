@@ -18,7 +18,7 @@ public class Checkout extends TestBase {
 	Select select;
 
 	@FindBy(xpath = "(//input[@name='payment_address'])[2]")
-	WebElement newAddressRadioBtn;
+	private WebElement newAddressRadioBtn;
 
 	@FindBy(xpath = "((//input[@name='shipping_address'])[1]")
 	private WebElement radionBtnExistingAddressDeliveryDetails;
@@ -28,28 +28,28 @@ public class Checkout extends TestBase {
 
 	// ------------BillingDetails WebElements
 	@FindBy(css = "#input-payment-firstname")
-	WebElement firstNameInputField;
+	private WebElement firstNameInputField;
 
 	@FindBy(css = "#input-payment-lastname")
-	WebElement lastNameInputField;
+	private WebElement lastNameInputField;
 
 	@FindBy(css = "#input-payment-company")
-	WebElement companyInputField;
+	private WebElement companyInputField;
 
 	@FindBy(css = "#input-payment-address-1")
-	WebElement addressInputField;
+	private WebElement addressInputField;
 
 	@FindBy(css = "#input-payment-city")
-	WebElement cityInputField;
+	private WebElement cityInputField;
 
 	@FindBy(css = "#input-payment-postcode")
-	WebElement postalCodeInputField;
+	private WebElement postalCodeInputField;
 
 	@FindBy(css = "#input-payment-country")
-	WebElement selectCountry;
+	private WebElement selectCountry;
 
 	@FindBy(css = "#input-payment-zone")
-	WebElement selectRegion;
+	private WebElement selectRegion;
 //----------------------------
 
 	@FindBy(css = "input[id='button-payment-address']")

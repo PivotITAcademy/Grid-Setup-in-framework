@@ -22,11 +22,11 @@ public class AccountLogin extends TestBase{
 	private WebElement loginBtn;
 
 	
-	public void enterEmail() {
+	private void enterEmail() {
 		inputEmailField.sendKeys("tony@gmail.com");
 	}
 
-	public void enterPassword() {
+	private void enterPassword() {
 		inputPasswordField.sendKeys("Password2");
 	}
 

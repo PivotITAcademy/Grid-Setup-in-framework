@@ -9,12 +9,15 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.naveenautomationlabs.AutomationFramework.base.TestBase;
 
 public class AppleCinema30 extends TestBase {
 
+	WebDriverWait wait = new WebDriverWait(wd, 10);
 	public AppleCinema30() {
 		PageFactory.initElements(wd, this);
 	}
@@ -44,14 +47,20 @@ public class AppleCinema30 extends TestBase {
 	private WebElement shoppingCartBtn;
 
 	private void mediumRadioBtnClick() {
-		mediumRadioBtn.click();
+		
+wait.until(ExpectedConditions.elementToBeClickable(mediumRadioBtn)).click();
+	//	mediumRadioBtn.click();
 	}
 
 	private void selectCheckBox() {
-		checkBox2.click();
+		
+		wait.until(ExpectedConditions.elementToBeClickable(checkBox2)).click();
+	//	checkBox2.click();
 	}
 
 	private void inputText() {
+		
+		//wait.until(ExpectedConditions.presenceOfElementLocated(null))
 		textAreaInputField.sendKeys("test");
 	}
 
@@ -112,11 +121,13 @@ public class AppleCinema30 extends TestBase {
 	}
 
 	public ShoppingCart clickShoppingCartBtn() {
-		shoppingCartBtn.click();
+		wait.until(ExpectedConditions.elementToBeClickable(shoppingCartBtn)).click();
 		return new ShoppingCart();
 	}
 
 	private void addToCart() {
+	
+		
 		mediumRadioBtnClick();
 		selectCheckBox();
 		inputText();

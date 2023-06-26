@@ -6,21 +6,32 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.testng.annotations.BeforeClass;
+
+import com.naveenautomationlabs.AutomationFramework.Listeners.WebDriverEvents;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBase {
 
 	public static WebDriver wd;
-	FileInputStream fileInputStream;
-	Properties prop;
+	private FileInputStream fileInputStream;
+	private Properties prop;
+	public static Logger logger;
+	private WebDriverEvents events;
+	private EventFiringWebDriver eDriver;
 	
 	public TestBase()
 	{
 		prop= new Properties();
 		try {
-			fileInputStream = new FileInputStream("C:\\Users\\Rimpi\\eclipse-workspace\\AutomationFramework\\src\\main\\java\\com\\naveenautomationlabs\\AutomationFramework\\Config\\Config.Properties");
+			fileInputStream = new FileInputStream("./src\\main\\java\\com\\naveenautomationlabs\\AutomationFramework\\Config\\Config.Properties");
 		} catch (FileNotFoundException e) {
 			
 			e.printStackTrace();
@@ -53,13 +64,25 @@ public class TestBase {
 		break;
 		}
 		
+		eDriver = new EventFiringWebDriver(wd);
+		events = new WebDriverEvents();
+		eDriver.register(events);
+		wd = eDriver;
+		
 		wd.get(prop.getProperty("url"));
-		//wd.get("https://naveenautomationlabs.com/opencart/index.php?route=common/home");
 		wd.manage().timeouts().implicitlyWait(Long.parseLong(prop.getProperty("Implicit_Wait")), TimeUnit.SECONDS);
 		wd.manage().window().maximize();
 		
 		}
 	
+	@BeforeClass
+	public void setUpLogger()
+	{
+		logger = Logger.getLogger(TestBase.class);
+		PropertyConfigurator.configure("log4j.properties");
+		BasicConfigurator.configure();
+		logger.setLevel(Level.INFO);
+	}
 	
 	public void quit()
 	{
