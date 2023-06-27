@@ -9,7 +9,7 @@ import com.naveenautomationlabs.AutomationFramework.base.TestBase;
 
 public class YourStoreTest extends TestBase {
 
-	YourStore yourStore;
+	private YourStore yourStore;
 	
 	@BeforeMethod
 	public void setUp() {
@@ -23,12 +23,13 @@ public class YourStoreTest extends TestBase {
 		yourStore.clickWishBtn();
 		String name = "Wish List "+"(" + yourStore.count+ ")";
 		
+		
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Assert.assertEquals(yourStore.wishListBtn.getText(),name);
+		Assert.assertEquals(yourStore.wishListBtn.getText(),name,"WishList Value is not updating");
 	}
 }

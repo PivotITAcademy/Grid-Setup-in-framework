@@ -1,5 +1,6 @@
 package com.naveenautomationlabs.AutomationFramework.Tests;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -24,7 +25,7 @@ public class YourTransactionsTest extends TestBase {
 	}
 	
 	@Test
-	public void validateCorrectOption()
+	public void validateTransactionOptionSelectedFromSiteNavigation()
 	{
 		accountLogin = yourStore.clickLoginBtn();
 		myAccount = accountLogin.clickLoginBtn();
@@ -33,6 +34,7 @@ public class YourTransactionsTest extends TestBase {
 		{
 			System.out.println("Right Product Selected");
 			wd.navigate().to("https://naveenautomationlabs.com/opencart/index.php?route=account/transaction");
+			Assert.assertEquals("Your Transactions", wd.getTitle(),"Transaction page not loaded");
 		}
 	}
 	

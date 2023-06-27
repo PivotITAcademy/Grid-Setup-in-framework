@@ -15,25 +15,24 @@ import com.naveenautomationlabs.AutomationFramework.Pages.RegisterAccount;
 import com.naveenautomationlabs.AutomationFramework.Pages.ShoppingCart;
 import com.naveenautomationlabs.AutomationFramework.Pages.Success;
 import com.naveenautomationlabs.AutomationFramework.Pages.YourStore;
-import com.naveenautomationlabs.AutomationFramework.Utils.Utils;
 import com.naveenautomationlabs.AutomationFramework.base.TestBase;
 
 public class SuccessTest extends TestBase {
 
-	YourStore yourStore;
-	Monitors monitors;
-	AppleCinema30 appleCinema;
-	ShoppingCart shoppingCart;
-	Checkout checkOut;
-	Success success;
-	RegisterAccount registerAccount;
-	MyAccount myAccount;
-	AccountLogin accountLogin;
+	private YourStore yourStore;
+	private Monitors monitors;
+	private AppleCinema30 appleCinema;
+	private ShoppingCart shoppingCart;
+	private Checkout checkOut;
+	private Success success;
+	private RegisterAccount registerAccount;
+	private MyAccount myAccount;
+	private AccountLogin accountLogin;
 	WebDriverWait wait;
 
 	@BeforeMethod
 	public void setUp() {
-		
+
 		intialization();
 		yourStore = new YourStore();
 		wait = new WebDriverWait(wd, 10);
@@ -50,17 +49,11 @@ public class SuccessTest extends TestBase {
 
 		appleCinema.clickAddToCartBtn();
 
-		/*
-		 * try { Thread.sleep(1000); } catch (InterruptedException e) {
-		 * 
-		 * e.printStackTrace(); }
-		 */
 		shoppingCart = appleCinema.clickShoppingCartBtn();
 		checkOut = shoppingCart.clickCheckOutBtn();
 		success = checkOut.clickConfirmOrderBtn();
 		String message = success.showOrderPlaceMessage();
 		Assert.assertEquals(message, "Your order has been placed!", "Message is not correct");
-		// success.clickContinueBtn();
 
 	}
 
@@ -72,28 +65,22 @@ public class SuccessTest extends TestBase {
 		appleCinema = monitors.clickAppleCinemaBtn();
 
 		appleCinema.clickAddToCartBtn();
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
 
-			e.printStackTrace();
-		}
 		shoppingCart = appleCinema.clickShoppingCartBtn();
 		checkOut = shoppingCart.clickCheckOutBtn();
 		success = checkOut.clickConfirmOrderBtnWithLogin();
 		String message = success.showOrderPlaceMessage();
 		Assert.assertEquals(message, "Your order has been placed!", "Message is not correct");
-		success.clickContinueBtn();
 
 	}
-	
+
 	@Test
-	public void validateProductSelected()
-	{
-		yourStore.selectProductFromRow("Canon EOS 5D");
-		
-		
-		
+	public void validateProductSelected() {
+		boolean flag = yourStore.selectProductFromRow("iPhone");
+		Assert.assertTrue(flag);
+		accountLogin = yourStore.clickLoginBtn();
+		myAccount = accountLogin.clickLoginBtn();
+
 	}
 
 	@AfterMethod
