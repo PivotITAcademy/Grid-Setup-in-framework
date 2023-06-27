@@ -27,6 +27,7 @@ public class TestBase {
 	private WebDriverEvents events;
 	private EventFiringWebDriver eDriver;
 	
+	
 	public TestBase()
 	{
 		prop= new Properties();
@@ -47,6 +48,7 @@ public class TestBase {
 	
 	public void intialization()
 	{
+		
 		String browserName= prop.getProperty("browser");	
 		switch (browserName) {
 		case "Chrome":

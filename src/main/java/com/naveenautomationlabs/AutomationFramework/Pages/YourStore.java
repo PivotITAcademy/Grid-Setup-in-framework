@@ -1,7 +1,6 @@
 package com.naveenautomationlabs.AutomationFramework.Pages;
 
 import java.util.List;
-import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -18,53 +17,64 @@ public class YourStore extends TestBase {
 
 		PageFactory.initElements(wd, this);
 	}
-	
-	WebDriverWait wait = new WebDriverWait(wd,10);
-	List<WebElement>  webElements;
-	String parentHandle = wd.getWindowHandle(); 
-	Set<String> windowhandles = wd.getWindowHandles();
+
+	public int count = 0;
+
+	WebDriverWait wait = new WebDriverWait(wd, 10);
+	List<WebElement> webElements;
 
 	@FindBy(css = "ul.list-inline>li:nth-of-type(2)>a")
 	private WebElement myAccount;
 
 	@FindBy(xpath = "(//ul//a[text()='Register'])[1]")
 	private WebElement registerBtn;
-	
+
 	@FindBy(css = "ul.dropdown-menu>li:nth-of-type(2)>a")
 	private WebElement loginBtn;
 
-
+	@FindBy(xpath="//span[contains(text(),'Wish List')]")
+	public WebElement wishListBtn;
+	
 	private void clickMyAccountBtn() {
 		myAccount.click();
 	}
 
-	public AccountLogin clickLoginBtn()
-	{
+	public AccountLogin clickLoginBtn() {
 		clickMyAccountBtn();
 		loginBtn.click();
 		return new AccountLogin();
 	}
+
 	public RegisterAccount clickRegisterBtn() {
 		clickMyAccountBtn();
 		registerBtn.click();
 		return new RegisterAccount();
 	}
-	
-	
-	public void selectProduct()
-	{
-		webElements=wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("div.product-layout.col-lg-3.col-md-3.col-sm-6.col-xs-12")));
-		
-			for(WebElement webElement: webElements) 
-			{	
-				String text = "Canon EOS 5D";
-				if(webElement.getText().contains(text))
-				{
-					System.out.println("**************Right Element selected:" + text);
-				}
-			}		
+
+	public boolean selectProductFromRow(String text) {
+		webElements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
+				By.cssSelector("div.product-layout.col-lg-3.col-md-3.col-sm-6.col-xs-12 div.image+div a")));
+
+		for (WebElement webElement : webElements) {
+			if (webElement.getText().contains(text)) 
+			{
+				webElement.click();
+			break;	
+			}
+		}
+		return true;
 	}
-	
 
+	public boolean clickWishBtn() {
 
+		webElements = wait
+				.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("button>i.fa.fa-heart")));
+		for (WebElement webElement : webElements) {
+			webElement.click();
+			
+			count++;
+		}
+
+		return true;
+	}
 }
