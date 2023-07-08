@@ -3,11 +3,9 @@
 <suite name="Suite">
 
 <listeners>
-
 		<listener class-name="com.naveenautomationlabs.AutomationFramework.Listeners.CustomListener"></listener>
-		<listener class-name="com.naveenautomationlabs.AutomationFramework.Listeners.ExtentReportListener"></listener>
-		<!--  listener class-name="com.naveenautomationlabs.AutomationFramework.Listeners.RetryFailedTests"></listener>-->
 		<listener class-name="com.naveenautomationlabs.AutomationFramework.Listeners.TransformerForRetry"></listener>
+		<listener class-name="com.naveenautomationlabs.AutomationFramework.Listeners.ExtentReportListener"></listener>
 	</listeners>
   <test thread-count="5" name="Test">
     <classes>

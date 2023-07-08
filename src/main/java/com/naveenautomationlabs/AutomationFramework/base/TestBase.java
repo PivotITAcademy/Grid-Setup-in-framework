@@ -12,9 +12,13 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
+
 import org.testng.annotations.BeforeClass;
 
+
 import com.naveenautomationlabs.AutomationFramework.Listeners.WebDriverEvents;
+import com.naveenautomationlabs.AutomationFramework.Utils.Browsers;
+import com.naveenautomationlabs.AutomationFramework.Utils.Environment;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -26,6 +30,8 @@ public class TestBase {
 	public static Logger logger;
 	private WebDriverEvents events;
 	private EventFiringWebDriver eDriver;
+	private Browsers browserName = Browsers.CHROME;
+	private Environment env = Environment.PROD;
 	
 	
 	public TestBase()
@@ -46,11 +52,19 @@ public class TestBase {
 		}
 	}
 	
+	@BeforeClass
+	public void setUpLogger()
+	{
+		logger = Logger.getLogger(TestBase.class);
+		PropertyConfigurator.configure("log4j.properties");
+		BasicConfigurator.configure();
+		logger.setLevel(Level.ALL);
+	}
 	public void intialization()
 	{
 		
-		String browserName= prop.getProperty("browser");	
-		switch (browserName) {
+	//	String browserName= prop.getProperty("browser");	
+		switch (browserName.getBrowserName()) {
 		case "Chrome":
 			wd = WebDriverManager.chromedriver().create();// this will return chromedriver and create method returns webdriver instance
 			break;
@@ -71,20 +85,14 @@ public class TestBase {
 		eDriver.register(events);
 		wd = eDriver;
 		
-		wd.get(prop.getProperty("url"));
+		wd.get(env.getUrl());
+	//	wd.get(prop.getProperty("url"));
 		wd.manage().timeouts().implicitlyWait(Long.parseLong(prop.getProperty("Implicit_Wait")), TimeUnit.SECONDS);
 		wd.manage().window().maximize();
 		
 		}
 	
-	@BeforeClass
-	public void setUpLogger()
-	{
-		logger = Logger.getLogger(TestBase.class);
-		PropertyConfigurator.configure("log4j.properties");
-		BasicConfigurator.configure();
-		logger.setLevel(Level.INFO);
-	}
+	
 	
 	public void quit()
 	{
