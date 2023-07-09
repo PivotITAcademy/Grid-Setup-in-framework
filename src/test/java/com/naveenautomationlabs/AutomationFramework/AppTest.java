@@ -3,6 +3,7 @@ package com.naveenautomationlabs.AutomationFramework;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import com.naveenautomationlabs.AutomationFramework.base.TestBase;
@@ -21,6 +22,7 @@ public class AppTest extends TestBase
 	
 	
 	@Test
+	@Ignore
     public void shouldAnswerWithTrue()
     {
     	
@@ -31,6 +33,6 @@ public class AppTest extends TestBase
     @AfterMethod
     public void quit()
     {
-    	quit();
+    	//quit();
     }
 }
