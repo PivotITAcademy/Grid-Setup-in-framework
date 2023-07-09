@@ -22,7 +22,7 @@ public class YourStoreTest extends TestBase {
 		yourStore.clickWishBtn();
 		String name = "Wish List " + "(" + yourStore.count + ")";
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
