@@ -5,7 +5,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.naveenautomationlabs.AutomationFramework.Pages.YourStore;
-import com.naveenautomationlabs.AutomationFramework.Utils.Utils;
 import com.naveenautomationlabs.AutomationFramework.base.TestBase;
 
 public class YourStoreTest extends TestBase {
@@ -22,7 +21,12 @@ public class YourStoreTest extends TestBase {
 	public void validateWishButtonValueIncrease() {
 		yourStore.clickWishBtn();
 		String name = "Wish List " + "(" + yourStore.count + ")";
-		Utils.sleep();
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Assert.assertEquals(yourStore.wishListBtn.getText(), name, "WishList Value is not updating");
 	}
 }
