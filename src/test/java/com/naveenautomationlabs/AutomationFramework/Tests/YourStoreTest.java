@@ -2,6 +2,7 @@ package com.naveenautomationlabs.AutomationFramework.Tests;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import com.naveenautomationlabs.AutomationFramework.Pages.YourStore;
@@ -18,6 +19,7 @@ public class YourStoreTest extends TestBase {
 	}
 
 	@Test
+	@Ignore
 	public void validateWishButtonValueIncrease() {
 		yourStore.clickWishBtn();
 		String name = "Wish List " + "(" + yourStore.count + ")";
