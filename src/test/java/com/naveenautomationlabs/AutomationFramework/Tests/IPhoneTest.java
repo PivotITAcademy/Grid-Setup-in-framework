@@ -5,7 +5,6 @@ import org.testng.annotations.Test;
 
 import com.naveenautomationlabs.AutomationFramework.Pages.YourStore;
 import com.naveenautomationlabs.AutomationFramework.base.TestBase;
-
 public class IphoneTest extends TestBase{
 YourStore yourStore;
 

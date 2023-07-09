@@ -1,99 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="1" total="7" passed="6" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-07-07T22:57:22 EDT" name="Suite" finished-at="2023-07-07T22:58:27 EDT" duration-ms="65475">
+  <suite started-at="2023-07-09T14:10:26 EDT" name="Default suite" finished-at="2023-07-09T14:10:37 EDT" duration-ms="11577">
     <groups>
     </groups>
-    <test started-at="2023-07-07T22:57:22 EDT" name="Test" finished-at="2023-07-07T22:58:27 EDT" duration-ms="65475">
+    <test started-at="2023-07-09T14:10:26 EDT" name="Default test" finished-at="2023-07-09T14:10:37 EDT" duration-ms="11577">
       <class name="com.naveenautomationlabs.AutomationFramework.Tests.IphoneTest">
-        <test-method is-config="true" signature="setUpLogger()[pri:0, instance:com.naveenautomationlabs.AutomationFramework.Tests.IphoneTest@52af26ee]" started-at="2023-07-07T22:57:34 EDT" name="setUpLogger" finished-at="2023-07-07T22:57:34 EDT" duration-ms="8" status="PASS">
+        <test-method is-config="true" signature="setUpLogger()[pri:0, instance:com.naveenautomationlabs.AutomationFramework.Tests.IphoneTest@2b91004a]" started-at="2023-07-09T14:10:26 EDT" name="setUpLogger" finished-at="2023-07-09T14:10:26 EDT" duration-ms="246" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpLogger -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.naveenautomationlabs.AutomationFramework.Tests.IphoneTest@52af26ee]" started-at="2023-07-07T22:57:34 EDT" name="setUp" finished-at="2023-07-07T22:57:39 EDT" duration-ms="4955" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.naveenautomationlabs.AutomationFramework.Tests.IphoneTest@2b91004a]" started-at="2023-07-09T14:10:26 EDT" name="setUp" finished-at="2023-07-09T14:10:36 EDT" duration-ms="10032" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="validateProductSelected()[pri:0, instance:com.naveenautomationlabs.AutomationFramework.Tests.IphoneTest@52af26ee]" started-at="2023-07-07T22:57:39 EDT" name="validateProductSelected" finished-at="2023-07-07T22:57:40 EDT" duration-ms="1166" status="PASS">
+        <test-method signature="validateProductSelected()[pri:0, instance:com.naveenautomationlabs.AutomationFramework.Tests.IphoneTest@2b91004a]" started-at="2023-07-09T14:10:36 EDT" name="validateProductSelected" finished-at="2023-07-09T14:10:37 EDT" duration-ms="1237" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateProductSelected -->
       </class> <!-- com.naveenautomationlabs.AutomationFramework.Tests.IphoneTest -->
-      <class name="com.naveenautomationlabs.AutomationFramework.Tests.SuccessTest">
-        <test-method is-config="true" signature="setUpLogger()[pri:0, instance:com.naveenautomationlabs.AutomationFramework.Tests.SuccessTest@7c24b813]" started-at="2023-07-07T22:57:22 EDT" name="setUpLogger" finished-at="2023-07-07T22:57:22 EDT" duration-ms="41" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpLogger -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.naveenautomationlabs.AutomationFramework.Tests.SuccessTest@7c24b813]" started-at="2023-07-07T22:57:22 EDT" name="setUp" finished-at="2023-07-07T22:57:31 EDT" duration-ms="8792" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="validateProductSelected()[pri:0, instance:com.naveenautomationlabs.AutomationFramework.Tests.SuccessTest@7c24b813]" started-at="2023-07-07T22:57:31 EDT" name="validateProductSelected" finished-at="2023-07-07T22:57:34 EDT" duration-ms="3418" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateProductSelected -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.naveenautomationlabs.AutomationFramework.Tests.SuccessTest@7c24b813]" started-at="2023-07-07T22:57:34 EDT" name="tearDown" finished-at="2023-07-07T22:57:34 EDT" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.naveenautomationlabs.AutomationFramework.Tests.SuccessTest -->
-      <class name="com.naveenautomationlabs.AutomationFramework.Tests.YourTransactionsTest">
-        <test-method is-config="true" signature="setUpLogger()[pri:0, instance:com.naveenautomationlabs.AutomationFramework.Tests.YourTransactionsTest@4f2b503c]" started-at="2023-07-07T22:57:50 EDT" name="setUpLogger" finished-at="2023-07-07T22:57:50 EDT" duration-ms="4" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpLogger -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.naveenautomationlabs.AutomationFramework.Tests.YourTransactionsTest@4f2b503c]" started-at="2023-07-07T22:57:50 EDT" name="setUp" finished-at="2023-07-07T22:58:02 EDT" duration-ms="11944" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="validateTransactionOptionSelectedFromSiteNavigation()[pri:0, instance:com.naveenautomationlabs.AutomationFramework.Tests.YourTransactionsTest@4f2b503c]" started-at="2023-07-07T22:58:02 EDT" name="validateTransactionOptionSelectedFromSiteNavigation" finished-at="2023-07-07T22:58:06 EDT" duration-ms="3962" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateTransactionOptionSelectedFromSiteNavigation -->
-      </class> <!-- com.naveenautomationlabs.AutomationFramework.Tests.YourTransactionsTest -->
-      <class name="com.naveenautomationlabs.AutomationFramework.Tests.YourStoreTest">
-        <test-method is-config="true" signature="setUpLogger()[pri:0, instance:com.naveenautomationlabs.AutomationFramework.Tests.YourStoreTest@6fd83fc1]" started-at="2023-07-07T22:57:40 EDT" name="setUpLogger" finished-at="2023-07-07T22:57:40 EDT" duration-ms="4" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpLogger -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.naveenautomationlabs.AutomationFramework.Tests.YourStoreTest@6fd83fc1]" started-at="2023-07-07T22:57:40 EDT" name="setUp" finished-at="2023-07-07T22:57:49 EDT" duration-ms="8352" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="validateWishButtonValueIncrease()[pri:0, instance:com.naveenautomationlabs.AutomationFramework.Tests.YourStoreTest@6fd83fc1]" started-at="2023-07-07T22:57:49 EDT" name="validateWishButtonValueIncrease" finished-at="2023-07-07T22:57:50 EDT" duration-ms="1418" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateWishButtonValueIncrease -->
-      </class> <!-- com.naveenautomationlabs.AutomationFramework.Tests.YourStoreTest -->
-      <class name="com.naveenautomationlabs.AutomationFramework.Tests.AppleCinema30Test">
-        <test-method is-config="true" signature="setUpLogger()[pri:0, instance:com.naveenautomationlabs.AutomationFramework.Tests.AppleCinema30Test@bae7dc0]" started-at="2023-07-07T22:58:06 EDT" name="setUpLogger" finished-at="2023-07-07T22:58:06 EDT" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpLogger -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.naveenautomationlabs.AutomationFramework.Tests.AppleCinema30Test@bae7dc0]" started-at="2023-07-07T22:58:06 EDT" name="setUp" finished-at="2023-07-07T22:58:12 EDT" duration-ms="5729" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="validateProductSelected()[pri:0, instance:com.naveenautomationlabs.AutomationFramework.Tests.AppleCinema30Test@bae7dc0]" started-at="2023-07-07T22:58:12 EDT" name="validateProductSelected" finished-at="2023-07-07T22:58:13 EDT" duration-ms="1584" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateProductSelected -->
-      </class> <!-- com.naveenautomationlabs.AutomationFramework.Tests.AppleCinema30Test -->
-      <class name="com.naveenautomationlabs.AutomationFramework.Tests.MyAccountTest">
-        <test-method is-config="true" signature="setUpLogger()[pri:0, instance:com.naveenautomationlabs.AutomationFramework.Tests.MyAccountTest@e15b7e8]" started-at="2023-07-07T22:58:13 EDT" name="setUpLogger" finished-at="2023-07-07T22:58:13 EDT" duration-ms="3" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpLogger -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.naveenautomationlabs.AutomationFramework.Tests.MyAccountTest@e15b7e8]" started-at="2023-07-07T22:58:13 EDT" name="setUp" finished-at="2023-07-07T22:58:23 EDT" duration-ms="9253" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="validateMyAccountOptionSelectedFromSiteNavigation()[pri:0, instance:com.naveenautomationlabs.AutomationFramework.Tests.MyAccountTest@e15b7e8]" started-at="2023-07-07T22:58:23 EDT" name="validateMyAccountOptionSelectedFromSiteNavigation" finished-at="2023-07-07T22:58:27 EDT" duration-ms="4400" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateMyAccountOptionSelectedFromSiteNavigation -->
-      </class> <!-- com.naveenautomationlabs.AutomationFramework.Tests.MyAccountTest -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

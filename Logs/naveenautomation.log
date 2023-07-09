@@ -4780,3 +4780,10 @@ ADD TO CART
 2023-07-07 23:24:27 INFO  TestBase:169 - Got Text: Transactions
 2023-07-07 23:24:27 INFO  TestBase:39 - Navigate to URL: https://naveenautomationlabs.com/opencart/index.php?route=account/transaction
 2023-07-07 23:24:28 INFO  TestBase:44 - Navigated to URL: https://naveenautomationlabs.com/opencart/index.php?route=account/transaction
+2023-07-09 14:10:32 INFO  TestBase:39 - Navigate to URL: https://naveenautomationlabs.com/opencart/index.php?route=common/home
+2023-07-09 14:10:36 INFO  TestBase:44 - Navigated to URL: https://naveenautomationlabs.com/opencart/index.php?route=common/home
+2023-07-09 14:10:36 INFO  TestBase:86 - Finding Element: By.cssSelector: div.product-layout.col-lg-3.col-md-3.col-sm-6.col-xs-12 div.image+div a
+2023-07-09 14:10:36 INFO  TestBase:91 - Found Element: By.cssSelector: div.product-layout.col-lg-3.col-md-3.col-sm-6.col-xs-12 div.image+div a
+2023-07-09 14:10:36 INFO  TestBase:169 - Got Text: MacBook
+2023-07-09 14:10:36 INFO  TestBase:169 - Got Text: iPhone
+2023-07-09 14:10:37 INFO  TestBase:102 - Clicked ON: [[ChromeDriver: chrome on WINDOWS (3596cc9119ae120a58a3978430939fcf)] -> css selector: div.product-layout.col-lg-3.col-md-3.col-sm-6.col-xs-12 div.image+div a]
