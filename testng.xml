@@ -10,7 +10,7 @@
   <test thread-count="5" name="Test">
     <classes>
       <class name="com.naveenautomationlabs.AutomationFramework.Tests.SuccessTest"/>
-      <!-- class name="com.naveenautomationlabs.AutomationFramework.Tests.IphoneTest"/-->
+      <class name="com.naveenautomationlabs.AutomationFramework.Tests.IphoneTest"/>
       <class name="com.naveenautomationlabs.AutomationFramework.Tests.YourStoreTest"/>
       
       <class name="com.naveenautomationlabs.AutomationFramework.Tests.YourTransactionsTest"/>
