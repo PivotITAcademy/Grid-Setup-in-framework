@@ -19,7 +19,6 @@ public class YourStoreTest extends TestBase {
 	}
 
 	@Test
-	@Ignore
 	public void validateWishButtonValueIncrease() {
 		yourStore.clickWishBtn();
 		String name = "Wish List " + "(" + yourStore.count + ")";
