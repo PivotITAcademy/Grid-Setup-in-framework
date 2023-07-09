@@ -1,11 +1,14 @@
 package com.naveenautomationlabs.AutomationFramework.Tests;
 
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.naveenautomationlabs.AutomationFramework.Pages.YourStore;
 import com.naveenautomationlabs.AutomationFramework.base.TestBase;
-public class IphoneTest extends TestBase{
+public class IphoneTest extends TestBase
+
+{
 YourStore yourStore;
 
 	
@@ -21,5 +24,11 @@ YourStore yourStore;
 	{
 		yourStore.selectProductFromRow("iPhone");
 		
+	}
+	
+	@AfterMethod
+	public void tearDown()
+	{
+		//wd.close();
 	}
 }
