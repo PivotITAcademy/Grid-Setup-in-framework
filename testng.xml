@@ -8,6 +8,7 @@
 		<listener class-name="com.naveenautomationlabs.AutomationFramework.Listeners.ExtentReportListener"></listener>
 	</listeners>
   <test thread-count="5" name="Test">
+  <parameter name="Browser" value="Chrome"></parameter>
     <classes>
       <class name="com.naveenautomationlabs.AutomationFramework.Tests.SuccessTest"/>
       <!-- class name="com.naveenautomationlabs.AutomationFramework.Tests.IphoneTest"/-->
