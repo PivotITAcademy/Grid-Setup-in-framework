@@ -30,7 +30,7 @@ public class TestBase {
 	public static Logger logger;
 	private WebDriverEvents events;
 	private EventFiringWebDriver eDriver;
-	//private Browsers browserName = Browsers.CHROME;
+	private Browsers browserName = Browsers.CHROME;
 	private Environment env = Environment.PROD;
 	
 	
@@ -62,9 +62,9 @@ public class TestBase {
 	}
 	public void intialization()
 	{
-		String broswerName = "Browser";
-		System.getProperty(broswerName);	
-		switch (broswerName) {
+		
+	//	String browserName= System.getProperty("Browser");	
+		switch (browserName.getBrowserName()) {
 		case "Chrome":
 			wd = WebDriverManager.chromedriver().create();// this will return chromedriver and create method returns webdriver instance
 			break;
