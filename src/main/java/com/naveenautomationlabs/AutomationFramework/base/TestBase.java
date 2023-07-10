@@ -63,7 +63,18 @@ public class TestBase {
 	public void intialization()
 	{
 		
+		
 			String browserName= System.getProperty("Browser");
+			
+			if(browserName.contains("Edge"))
+			{
+				browserName ="Edge";
+			}
+			else if(browserName.contains("Chrome"))
+			{
+				browserName ="Chrome";
+			}
+			
 		switch (browserName) {
 		case "Chrome":
 			wd = WebDriverManager.chromedriver().create();// this will return chromedriver and create method returns webdriver instance
