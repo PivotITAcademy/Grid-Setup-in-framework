@@ -66,9 +66,9 @@ public class YourStore extends TestBase {
 	}
 
 	public boolean clickWishBtn() {
-
+//button>i.fa.fa-heart
 		webElements = wait
-				.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("button>i.fa.fa-heart")));
+				.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//button[@data-original-title='Add to Wish List']")));
 		for (WebElement webElement : webElements) {
 			webElement.click();
 			
