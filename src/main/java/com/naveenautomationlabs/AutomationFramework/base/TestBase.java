@@ -63,8 +63,8 @@ public class TestBase {
 	public void intialization()
 	{
 		
-	//	String browserName= System.getProperty("Browser");	
-		switch (System.getProperty(prop.getProperty("Browser"))) {
+			
+		switch (browserName.getBrowserName()) {
 		case "Chrome":
 			wd = WebDriverManager.chromedriver().create();// this will return chromedriver and create method returns webdriver instance
 			break;
