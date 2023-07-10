@@ -30,7 +30,7 @@ public class TestBase {
 	public static Logger logger;
 	private WebDriverEvents events;
 	private EventFiringWebDriver eDriver;
-	private Browsers browserName = Browsers.CHROME;
+	//private Browsers browserName = Browsers.CHROME;
 	private Environment env = Environment.PROD;
 	
 	
@@ -71,7 +71,7 @@ public class TestBase {
 		case "Edge":
 			wd = WebDriverManager.edgedriver().create();
 			break;
-		case "Firefox":
+		case "Firefo":
 			wd =WebDriverManager.firefoxdriver().create();
 			break;
 
