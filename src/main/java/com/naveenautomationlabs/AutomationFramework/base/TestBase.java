@@ -30,7 +30,7 @@ public class TestBase {
 	public static Logger logger;
 	private WebDriverEvents events;
 	private EventFiringWebDriver eDriver;
-	private Browsers browserName = Browsers.CHROME;
+//	private Browsers browserName = Browsers.CHROME;
 	private Environment env = Environment.PROD;
 	
 	
@@ -64,21 +64,15 @@ public class TestBase {
 	{
 		
 	//	String browserName= prop.getProperty("browser");	
-		switch (browserName.getBrowserName()) {
-		case "Chrome":
-			wd = WebDriverManager.chromedriver().create();// this will return chromedriver and create method returns webdriver instance
-			break;
-		case "Edge":
-			wd = WebDriverManager.edgedriver().create();
-			break;
-		case "Firefox":
-			wd =WebDriverManager.firefoxdriver().create();
-			break;
-
-		default:
-		System.out.println("not a valid browser name");
-		break;
-		}
+	/*
+	 * switch (browserName.getBrowserName()) { case "Chrome": wd =
+	 * WebDriverManager.chromedriver().create();// this will return chromedriver and
+	 * create method returns webdriver instance break; case "Edge": wd =
+	 * WebDriverManager.edgedriver().create(); break; case "Firefox": wd
+	 * =WebDriverManager.firefoxdriver().create(); break;
+	 * 
+	 * default: System.out.println("not a valid browser name"); break; }
+	 */
 		
 		eDriver = new EventFiringWebDriver(wd);
 		events = new WebDriverEvents();
