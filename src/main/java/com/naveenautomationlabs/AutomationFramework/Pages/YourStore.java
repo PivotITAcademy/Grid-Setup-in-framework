@@ -70,6 +70,12 @@ public class YourStore extends TestBase {
 		webElements = wait
 				.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//button[@data-original-title='Add to Wish List']")));
 		for (WebElement webElement : webElements) {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			webElement.click();
 			
 			count++;
