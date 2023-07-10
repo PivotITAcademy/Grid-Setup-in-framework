@@ -32,7 +32,7 @@ public class YourStore extends TestBase {
 	@FindBy(css = "ul.dropdown-menu>li:nth-of-type(2)>a")
 	private WebElement loginBtn;
 
-	@FindBy(xpath="//span[contains(text(),'Wish List')]")
+	@FindBy(xpath="//a//span[contains(text(),'Wish List')]")
 	public WebElement wishListBtn;
 	
 	private void clickMyAccountBtn() {
