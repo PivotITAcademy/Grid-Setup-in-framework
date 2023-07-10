@@ -68,10 +68,10 @@ public class TestBase {
 		case "Chrome":
 			wd = WebDriverManager.chromedriver().create();// this will return chromedriver and create method returns webdriver instance
 			break;
-		case "Edge":
+		case "Ede":
 			wd = WebDriverManager.edgedriver().create();
 			break;
-		case "Firefo":
+		case "Firefox":
 			wd =WebDriverManager.firefoxdriver().create();
 			break;
 
