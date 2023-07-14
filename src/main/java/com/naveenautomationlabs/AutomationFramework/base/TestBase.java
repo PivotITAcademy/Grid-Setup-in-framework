@@ -15,7 +15,6 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import org.testng.annotations.BeforeClass;
 
-
 import com.naveenautomationlabs.AutomationFramework.Listeners.WebDriverEvents;
 import com.naveenautomationlabs.AutomationFramework.Utils.Browsers;
 import com.naveenautomationlabs.AutomationFramework.Utils.Environment;
@@ -32,18 +31,17 @@ public class TestBase {
 	private EventFiringWebDriver eDriver;
 //	private Browsers browserName = Browsers.CHROME;
 	private Environment env = Environment.PROD;
-	
-	
-	public TestBase()
-	{
-		prop= new Properties();
+
+	public TestBase() {
+		prop = new Properties();
 		try {
-			fileInputStream = new FileInputStream("./src\\main\\java\\com\\naveenautomationlabs\\AutomationFramework\\Config\\Config.Properties");
+			fileInputStream = new FileInputStream(
+					"./src\\main\\java\\com\\naveenautomationlabs\\AutomationFramework\\Config\\Config.Properties");
 		} catch (FileNotFoundException e) {
-			
+
 			e.printStackTrace();
 		}
-		
+
 		try {
 			prop.load(fileInputStream);
 		} catch (IOException e) {
@@ -51,62 +49,54 @@ public class TestBase {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@BeforeClass
-	public void setUpLogger()
-	{
+	public void setUpLogger() {
 		logger = Logger.getLogger(TestBase.class);
 		PropertyConfigurator.configure("log4j.properties");
 		BasicConfigurator.configure();
 		logger.setLevel(Level.ALL);
 	}
-	public void intialization()
-	{
+
+	public void intialization() {
+		String browserName = System.getProperty("Browser","Chrome");
+		
+		/*
+		 * if(browserName.contains("Edge")) { browserName ="Edge"; } else
+		 * if(browserName.contains("Chrome")) { browserName ="Chrome"; }
+		 */
 		
 		
-			String browserName= System.getProperty("Browser");
-			
-			if(browserName.contains("Edge"))
-			{
-				browserName ="Edge";
-			}
-			else if(browserName.contains("Chrome"))
-			{
-				browserName ="Chrome";
-			}
-			
 		switch (browserName) {
 		case "Chrome":
-			wd = WebDriverManager.chromedriver().create();// this will return chromedriver and create method returns webdriver instance
+			wd = WebDriverManager.chromedriver().create();// this will return chromedriver and create method returns
+															// webdriver instance
 			break;
 		case "Edge":
 			wd = WebDriverManager.edgedriver().create();
 			break;
 		case "Firefox":
-			wd =WebDriverManager.firefoxdriver().create();
+			wd = WebDriverManager.firefoxdriver().create();
 			break;
 
 		default:
-		System.out.println("not a valid browser name");
-		break;
+			System.out.println("not a valid browser name");
+			break;
 		}
-		
+
 		eDriver = new EventFiringWebDriver(wd);
 		events = new WebDriverEvents();
 		eDriver.register(events);
 		wd = eDriver;
-		
+
 		wd.get(env.getUrl());
-	//	wd.get(prop.getProperty("url"));
+		// wd.get(prop.getProperty("url"));
 		wd.manage().timeouts().implicitlyWait(Long.parseLong(prop.getProperty("Implicit_Wait")), TimeUnit.SECONDS);
 		wd.manage().window().maximize();
-		
-		}
-	
-	
-	
-	public void quit()
-	{
+
+	}
+
+	public void quit() {
 		wd.quit();
 	}
 }
