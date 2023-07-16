@@ -105,7 +105,7 @@
 					<configuration>
 						<suiteXmlFiles>
 							
-							<suiteXmlFile>./target\surefire-reports\testng-failed.xml</suiteXmlFile>
+							<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
 									
 						</suiteXmlFiles>
 					</configuration>
