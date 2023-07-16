@@ -59,7 +59,6 @@ public class SuccessTest extends TestBase {
 	}
 
 	@Test
-	@Ignore
 	public void validateOrderPlacedAfterLogin() {
 		accountLogin = yourStore.clickLoginBtn();
 		myAccount = accountLogin.clickLoginBtn();
