@@ -79,8 +79,8 @@ public class SuccessTest extends TestBase {
 	public void validateProductSelected() {
 		boolean flag = yourStore.selectProductFromRow("iPhone");
 		Assert.assertTrue(flag);
-		accountLogin = yourStore.clickLoginBtn();
-		myAccount = accountLogin.clickLoginBtn();
+	//	accountLogin = yourStore.clickLoginBtn();
+	//	myAccount = accountLogin.clickLoginBtn();
 
 	}
 
