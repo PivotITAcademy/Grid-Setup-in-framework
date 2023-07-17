@@ -8,7 +8,7 @@ import com.naveenautomationlabs.AutomationFramework.base.TestBase;
 public class RetryFailedTests extends TestBase implements IRetryAnalyzer {
 
 	int count =1;
-	int maxCount = 2;
+	int maxCount = 1;
 	
 	@Override
 	public boolean retry(ITestResult result) {
