@@ -29,6 +29,7 @@ public class TestBase {
 	public static Logger logger;
 	private WebDriverEvents events;
 	private EventFiringWebDriver eDriver;
+	private Browsers BROWSER = Browsers.CHROME;
 //	private Browsers browserName = Browsers.CHROME;
 	private Environment env = Environment.PROD;
 
@@ -59,18 +60,21 @@ public class TestBase {
 	}
 
 	public void intialization() {
-		String browserName = System.getProperty("Browser","Chrome");
-		
 		/*
-		 * if(browserName.contains("Edge")) { browserName ="Edge"; } else
-		 * if(browserName.contains("Chrome")) { browserName ="Chrome"; }
+		 * String browserName = System.getProperty("Browser","Chrome");
+		 * 
+		 * switch (browserName) { case "Chrome": wd =
+		 * WebDriverManager.chromedriver().create();// this will return chromedriver and
+		 * create method returns // webdriver instance break; case "Edge": wd =
+		 * WebDriverManager.edgedriver().create(); break; case "Firefox": wd =
+		 * WebDriverManager.firefoxdriver().create(); break;
+		 * 
+		 * default: System.out.println("not a valid browser name"); break;
 		 */
-		
-		
-		switch (browserName) {
+
+		switch (BROWSER.getBrowserName()) {
 		case "Chrome":
-			wd = WebDriverManager.chromedriver().create();// this will return chromedriver and create method returns
-															// webdriver instance
+			wd = WebDriverManager.chromedriver().create();
 			break;
 		case "Edge":
 			wd = WebDriverManager.edgedriver().create();
@@ -78,9 +82,8 @@ public class TestBase {
 		case "Firefox":
 			wd = WebDriverManager.firefoxdriver().create();
 			break;
-
 		default:
-			System.out.println("not a valid browser name");
+			System.out.println("Not a valid browser name");
 			break;
 		}
 
@@ -90,7 +93,6 @@ public class TestBase {
 		wd = eDriver;
 
 		wd.get(env.getUrl());
-		// wd.get(prop.getProperty("url"));
 		wd.manage().timeouts().implicitlyWait(Long.parseLong(prop.getProperty("Implicit_Wait")), TimeUnit.SECONDS);
 		wd.manage().window().maximize();
 
