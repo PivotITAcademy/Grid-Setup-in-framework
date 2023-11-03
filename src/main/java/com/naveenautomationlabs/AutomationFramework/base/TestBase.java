@@ -3,6 +3,8 @@ package com.naveenautomationlabs.AutomationFramework.base;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -10,7 +12,9 @@ import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import org.testng.annotations.BeforeClass;
@@ -32,6 +36,7 @@ public class TestBase {
 	private Browsers BROWSER = Browsers.CHROME;
 //	private Browsers browserName = Browsers.CHROME;
 	private Environment env = Environment.PROD;
+	private static final boolean RUN_ON_GRID = true;
 
 	public TestBase() {
 		prop = new Properties();
@@ -71,20 +76,29 @@ public class TestBase {
 		 * 
 		 * default: System.out.println("not a valid browser name"); break;
 		 */
+		if (RUN_ON_GRID) {
+			try {
+				wd = new RemoteWebDriver(new URL(" http://192.168.99.1:4545"),getOptions());
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else {
 
-		switch (BROWSER.getBrowserName()) {
-		case "Chrome":
-			wd = WebDriverManager.chromedriver().create();
-			break;
-		case "Edge":
-			wd = WebDriverManager.edgedriver().create();
-			break;
-		case "Firefox":
-			wd = WebDriverManager.firefoxdriver().create();
-			break;
-		default:
-			System.out.println("Not a valid browser name");
-			break;
+			switch (BROWSER.getBrowserName()) {
+			case "Chrome":
+				wd = WebDriverManager.chromedriver().create();
+				break;
+			case "Edge":
+				wd = WebDriverManager.edgedriver().create();
+				break;
+			case "Firefox":
+				wd = WebDriverManager.firefoxdriver().create();
+				break;
+			default:
+				System.out.println("Not a valid browser name");
+				break;
+			}
 		}
 
 		eDriver = new EventFiringWebDriver(wd);
@@ -96,6 +110,10 @@ public class TestBase {
 		wd.manage().timeouts().implicitlyWait(Long.parseLong(prop.getProperty("Implicit_Wait")), TimeUnit.SECONDS);
 		wd.manage().window().maximize();
 
+	}
+
+	public MutableCapabilities getOptions() {
+		return new ManageOptions().getOption(BROWSER);
 	}
 
 	public void quit() {
